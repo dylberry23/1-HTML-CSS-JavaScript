@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Guessing Game</title>
+</head>
+
+<body>
+    <h1>Color Guessing Game</h1>
+    <button type="button" onclick="runGame()">Start Game</button>
+    <script>
+        const COLORS_ARRAY = ['blue', 'cyan', 'gold', 'gray', 'green', 'magenta', 'orange', 'red', 'white', 'yellow'];
+        COLORS_ARRAY[2] = 'silver';
+        COLORS_ARRAY.sort();
+        //alert(COLORS_ARRAY);
+        function runGame() {
+            let guess = '';
+            let correct = false;
+            let numTries = 0;
+            //let targetIndexA = Math.random() * COLORS_ARRAY.length;
+            let targetIndex = Math.floor(Math.random() * COLORS_ARRAY.length);
+            //alert(targetIndex);
+            let target = COLORS_ARRAY[targetIndex]
+            console.log('The target is ' + target);
+            do{
+                guess = prompt('I am thinking of one of these colors:\r\n' +
+                 COLORS_ARRAY.join(' | ') + 
+                 '\r\nWhat color am I thinking of?');
+                numTries += 1;
+                if(guess === null){
+                    alert('The game was ended by you.');
+                    return;
+                }
+                correct = checkGuess(guess.toLowerCase(), target);
+            }while (!correct);
+            alert('Congratulations! You won in  ' + numTries + ' tries');
+            document.body.style.background = guess;
+        }
+        function checkGuess(guess, target) {
+            const sorryMsg = 'Sorry, your guess is incorrect.\n\n';
+            const tryMsg = '\n\nPlease try again.';
+            let correct = false;
+
+            if(!COLORS_ARRAY.includes(guess)){
+                alert('Sorry, I don\'t recognize your color.' + tryMsg);
+            }
+            else if(guess < target){
+                alert(sorryMsg + 'Hint: your color is alphabetically lower than mine.' + tryMsg);               
+                
+            }
+            else if(guess > target ){
+                alert(sorryMsg + 'Hint: your color is alphabetically higher than mine.' + tryMsg);
+            }
+            else{
+                correct = true;
+            }
+            return correct;
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Week 4</title>
+</head>
+
+<body>
+    <h1 onmousedown="changeBackground();" onmouseup="revertBackground();">Practice Week 4, CLick Me</h1>
+    <script>
+        const guestsArray = ['Jack', 'Aravind', 'Samira', 'Haley', 'Lydia', 'Adrian'];
+        /*for(let i = 0; i < guestsArray.length; i ++){
+            console.log('Welcome to the party ' + guestsArray[i] + '!')
+        }
+
+        for (const guest of guestsArray){
+            console.log ('Welcome to the party ' + guest + '!');
+        }*/
+        for (let i = 0; i < 10; i++) {
+            if (i === 5) {
+                continue;
+            }
+            console.log(i);
+        }
+    </script>
+    <script>
+        const h1 = document.getElementsByTagName('h1')[0];
+        
+        function changeBackground() {
+            h1.style.background = 'orange';
+        }
+        function revertBackground() {
+            h1.style.background = 'white';
+        }
+    </script>
+</body>
+
+</html>

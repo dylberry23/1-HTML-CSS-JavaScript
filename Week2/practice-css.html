@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>CSS Practice: CSS Corner Cafe</title>
+    <link rel="stylesheet" href="css/practice-styles.css" />
+
+</head>
+
+<body>
+    <h1>CSS Corner Cafe</h1><br>
+    <section id="menu">
+        <h2>Menu</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Coffee</td>
+                    <td>$2</td>
+                </tr>
+                <tr>
+                    <td>Soda</td>
+                    <td>$2</td>
+                </tr>
+                <tr>
+                    <td>Tea</td>
+                    <td>$1.50</td>
+                </tr>
+                <tr>
+                    <td>Chicken & Waffles</td>
+                    <td>$12</td>
+                </tr>
+                <tr>
+                    <td>Blueberry Pancakes</td>
+                    <td>$6</td>
+                </tr>
+                <tr>
+                    <td>Spaghetti & Meatballs</td>
+                    <td>$12</td>
+                </tr>
+                <td>Cheeseburger & Fries</td>
+                <td>$10</td>
+                <tr>
+                    <td>Milkshake</td>
+                    <td>$5</td>
+                </tr>
+            </tbody>
+        </table>
+        <form action="https://us-central1-nucamp-production.cloudfunctions.net/post/formdata" method="post">
+            <fieldset>
+                <legend>Pick Your Favorite</legend>
+                <input type="text" name="firstName" placeholder="Your First Name" />
+                <select name="favorite">
+                    <option value="coffee">Coffee</option>
+                    <option value="soda">Soda</option>
+                    <option value="tea">Tea</option>
+                    <option value="chicken&waffles">Chicken & Waffles</option>
+                    <option value="blueberrypancakes">Blueberry Pancakes</option>
+                    <option value="spaghetti&meatballs">Spaghetti & Meatballs</option>
+                    <option value="cheeseburger&fries">Cheeseburger & Fries</option>
+                    <option value="milkshake">Milkshake</option>
+                    <input type="submit" value="Go">
+            </fieldset>
+        </form>
+        </select>
+    </section><br>
+    <section id="review">
+        <h2>Submit Your Review</h2>
+        <form action="https://us-central1-nucamp-production.cloudfunctions.net/post/formdata" method="post">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" />
+            <label for="rating">Your Rating:</label>
+            1 <input type="range" id="rating" name="rating" min="1" max="5" /> 5
+            <input type="submit" id="submit-btn" />
+        </form>
+    </section><br>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Call us at: <a href="tel:+15555551212">1-555-555-1212</a></p>
+        <address>
+            CSS Corner Cafe<br />
+            101 W Main St<br />
+            Bellevue, WA 98004
+        </address>
+    </section>
+</body>
+
+</html>

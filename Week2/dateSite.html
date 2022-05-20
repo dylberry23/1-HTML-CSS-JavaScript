@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Me</title>
+    <style>
+        /* my style*/
+        body{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 50%;
+            margin: auto;
+        }
+        legend {
+            background: purple;
+            border-radius: 10px;
+            color: white;
+            padding: 10px;
+        }
+        fieldset {
+            background: lavender;
+            border: 10px solid darkblue;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            min-width: 250px;
+        }
+        div {margin: 10px;}
+        div:hover{color: blue}
+        label{
+            display: inline-block;
+            text-align: right;
+            vertical-align: top;
+            width: 250px;
+        }
+        input[type="radio"]+label, input[type="checkbox"]+label{width: auto;}
+        input[type="range"]{width: 20%;}
+        .range-caption{
+            background: cyan;
+            color: white;
+            padding: 6px 4px;
+            text-align: center;
+        }
+        input[type="submit"]{
+            background: cyan;
+            color: white;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 150%;           
+        }
+
+    </style>
+    <link rel="stylesheet" href="../css/horizontalmenu.css">
+</head>
+
+<body>
+    <menu>
+        <nav class="nav1">
+            <ul>
+                <li style="z-index: 4;"><a href="#">Home</a></li>
+                <li style="z-index: 3;"><a href="#">About</a>
+                    <ul>
+                        <li><a href="#">Assignment 1</a></li>
+                        <li><a href="#">Assignment 2</a></li>
+                    </ul>
+                </li>
+                <li style="z-index: 2;"><a href="#">Contact</a></li>
+                <li style="z-index: 1;"><a href="#">Career</a></li>
+            </ul>
+        </nav>
+    </menu>
+    <h1>Enter Your Details For Our Dating Website</h1>
+    <form action="https://us-central1-nucamp-production.cloudfunctions.net/post/formdata" method="post"
+        enctype="multipart/form-data">
+        <fieldset>
+            <legend>Your Image</legend>
+            <div>
+                <label for="avatar">Upload Your Image: </label>
+                <input type="file" name="avatar" id="avatar" required />
+            </div>
+            Image Preview: <br>
+            <img src="../images/noface.png" alt="imagePreview" width="200">
+        </fieldset>
+        <fieldset>
+            <legend>Your Details</legend>
+            <div>
+                <label for="name">Your Name</label>
+                <input type="text" name="name" id="name" placeholder="Your Name">
+            </div>
+            <div>
+                <label>Gender: </label>
+                <input type="radio" name="gender" id="woman" value="woman">
+                <label for="woman">Woman</label>
+                <input type="radio" name="gender" id="man" value="man">
+                <label for="man">Man</label>
+                <input type="radio" name="gender" id="nonBi" value="nonbi">
+                <label for="nonBi">Non Binary</label>
+            </div>
+            <div>
+                <label for="age">Age:</label>
+                <input type="number" name="age" id="age">
+            </div>
+            <div>
+                <label for="dob">Birthday</label>
+                <input type="date" name="dob" id="dob">
+            </div>
+            <div>
+                <label for="color">Favorite Color:</label>
+                <input type="color" name="color" id="color">
+            </div>
+            <div>
+                <label for="country">Country: </label>
+                <select name="country" id="country">
+                    <option selected disabled hidden>Choose Your Home</option>
+                    <option value="BR">Brazil</option>
+                    <option value="FR">France</option>
+                    <option value="JP">Japan</option>
+                    <option value="CN">Canada</option>
+                    <option value="US">U.S.A.</option>
+                </select>
+            </div>
+            <div>
+                <label for="salary">Salary: </label>
+                <span class="range-caption">Poor</span>
+                <input type="range" name="salary" id="salary" min="0" max="100" value="25">
+                <span class="range-caption">Rich</span>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Your Contact Information</legend>
+            <div>
+                <label for="email">Email: </label>
+                <input type="email" name="email" id="email">
+            </div>
+            <div>
+                <label for="tel">Phone: </label>
+                <input type="tel" name="tel" id="tel">
+            </div>
+            <div>
+                <label for="address">Address: </label>
+                <textarea name="address" id="address" cols="30" rows="5"></textarea>
+            </div>
+            <div>
+                <label>Contact Method(s): </label>
+                <input type="checkbox" name="contact1" id="emailCheckbox" value="email">
+                <label for="emailCheckbox">Email</label>
+                <input type="checkbox" name="contact2" id="phoneCheckbox" value="phone">
+                <label for="phoneCheckbox">Phone</label>
+                <input type="checkbox" name="contact3" id="addressCheckbox" value="address">
+                <label for="addressCheckbox">Snail Mail</label>
+            </div>
+        </fieldset>
+        <div>
+            <input type="submit">
+        </div>
+
+    </form>
+    <script src="https://url.nucamp.co/datingjs"></script>
+</body>
+
+</html>

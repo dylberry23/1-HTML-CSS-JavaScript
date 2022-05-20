@@ -1,0 +1,93 @@
+body {
+   background-color: tomato;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 50px;
+    border: 2px dotted yellow;
+    padding: 25px;
+    background-image: url(spaghetti.jpg);
+    
+}
+
+h1 {
+    color: rgb(0, 255, 179);
+    font: 100px Garamond, Helvetica, serif;
+    text-align: center;
+    width: 25%;
+    margin: auto;
+    padding: 25px;
+    border: 2px solid yellowgreen;
+
+}
+
+#menu {
+    width: 800px;
+    background-color: antiquewhite;
+    border: 3px double rgb(121, 197, 34);
+    color: rgb(24, 22, 153);
+    text-align: center;
+    font-size: 30px;    
+    margin: auto;
+    background-image: url(chickenwaffle.jpg);
+    
+
+}
+
+table {
+    display: block-inline;
+    width: 500px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: auto;
+    border: rgb(59, 116, 163);
+    margin: auto;
+    color:rgb(26, 250, 64)
+}
+
+thead {
+    color:rgb(29, 153, 255);
+}
+
+#review {
+    display:block;
+    border: 5px solid rgb(154, 182, 157);
+    color: rgb(28, 122, 69);
+    background-color: rgb(180, 171, 240);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    width: 500px;
+    height: 400px;
+    margin: auto;
+    background-image: url(cheeseburger.jpg) ;
+}
+
+#contact {
+    display:block;
+    background-color: rgb(54, 72, 87);
+    border: 5px solid rgb(214, 85, 46);
+    margin: auto;
+    text-align: center;
+    color: rgb(0, 23, 156);
+    width:350px;
+    height: 250px;
+    background-image: url(tea.jpg);
+}
+
+label {
+    display: block;
+    color:rgb(255, 68, 10)
+}
+
+#submit-btn {
+    display: block;
+    margin: auto;
+    color:rgb(31, 238, 52);
+    background-color: rgb(178, 29, 216);
+    width: 150px;
+    height: 50px;
+    font-size:20px;
+
+}
+
+legend {
+    color:rgb(255, 16, 16);
+    font-weight: 900;
+}

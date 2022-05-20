@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        body {
+            background-color: slategrey; /* #708090 Color Hex Slate Gray */
+            color: #ffffff;
+        }
+        main { width: 66%; margin: auto;}
+        #Menu {
+            float: left;
+            color: #fff;
+            width: 120px;
+            height: 450px;
+            background-color: slategrey;
+        }
+        a:link {color: #fff; text-decoration: none;}
+        a:visited {color: #fff; text-decoration: none;}
+        a:hover {color: #111; text-decoration: none;}
+        a:active {color: #ffF; text-decoration: none; }
+        #Content{background: slategrey;}
+    /* Below is to hide all content except home  */
+        #Home {display: block;}
+        #About,
+        #Assignment,
+        #Contact {display: none;}
+    /* Above is to hide all content except home  */
+        #Foot {
+            clear: both;
+            color: white;
+        }
+    
+        img {width: 50%; height: auto; }
+        #castleImg {
+            position: relative;
+            top: 1%;
+            left: -5%;
+            height: auto;
+            width: 100%;
+            max-height: 150px;
+            max-width: 750px;
+        }
+    </style>
+    
+</head>
+<body>
+    <main>
+        <div id="Header">
+            <img id="castleImg" src="../images/catbudsters.jpg" style="" />
+        </div>
+        <div id="Menu">
+            <h2>Menu</h2>
+            <a href="#" onclick="ShowHide('Home')">Home</a> <br><br>
+            <a href="#" onclick="ShowHide('About')">About</a> <br><br>
+            <a href="#" onclick="ShowHide('Assignment')">Assignment</a> <br><br>
+            <a href="#" onclick="ShowHide('Contact')">Contact</a> <br><br>
+        </div>
+        <div id="Content">
+            <h1>Content</h1>
+            <div id="Home" class="content"> Home <br>
+                <img src="../images/cheeseburger.jpg" />
+            </div>
+            <div id="About" class="content"> About <br>
+                <img src="../images/mountains.jpg" />
+            </div>
+            <div id="Assignment" class="content"> Class 1 Assignment <br>
+                <img src="../images/spaghetti.jpg" />
+            </div>
+            <div id="Contact" class="content"> Contact <br>
+                <img src="../images/chickenwaffle.jpg" />
+            </div>
+        </div>
+        <div id="Foot" style="text-align: right; 
+                padding-right: 33%;">&copy;MyLife 2021</div>
+    </main>
+
+    <script>
+        //bring in 1 param (The content to show)
+            function ShowHide(tagId) { 
+                // build an array of content classes
+                let cnt = document.getElementsByClassName("content"); 
+               // let cnt = document.querySelector(".content");
+                let i;  // incrementor variable
+                //Loop through the array of content classes
+                for (i = 0; i < cnt.length; i++) { 
+                    // set them all to hidden
+                    cnt[i].style.display = "none"; 
+                }
+                // show just the param
+                document.getElementById(tagId).style.display = 'block'; 
+            }
+        </script>
+        
+</body>
+
+</html>

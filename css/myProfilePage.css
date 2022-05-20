@@ -1,0 +1,72 @@
+body {
+    margin:auto;
+    background-color: mediumaquamarine;
+    padding: 20px;
+    text-align: center;
+    width: 66%;
+}
+
+h1 {
+    margin: auto;
+    color: rgb(15, 65, 204);
+    padding: 15px;
+    width: 50%;
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+nav {
+    font-weight: bolder;
+    font-size: 25px;
+    border-bottom: 5px solid rgba(2, 160, 165, 0.753);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 10px;
+    display: inline-block;
+}
+
+#about {
+   color: tomato;
+   text-align: center;
+   border: 3px blue;
+   padding: 10px;
+   font-size: 20px;
+}
+
+.item1 { 
+    grid-area: header; 
+    border: 5px solid rgb(200, 255, 0);
+    border-radius: 20px;
+    display: flex;
+}
+
+.item2 {
+    grid-area: about;
+    border: 5px double purple;
+}
+
+.item3 { grid-area: main; }
+.item4 { grid-area: left; }
+.item5 { grid-area: footer; }
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+    'header header header header'
+    'about main main main'
+    'left main main main'
+    'left main main main'
+    'footer main main main'
+    ;
+}
+
+#interests {
+    border-radius: 30px;
+    padding: 20px;
+    color: gold;
+}
+
+fieldset {
+    border-radius: 30px;
+    border-color:greenyellow
+}

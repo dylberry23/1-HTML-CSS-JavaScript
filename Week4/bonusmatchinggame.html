@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match Smile Game</title>
+    <style>
+        img{position: absolute;}
+        div{
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border: 1px blue solid;
+        }
+        #rightSide{
+            left: 500px;
+            border-left: 1px solid blue;
+        }
+        body{
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Matching Game</h1>
+    <p>Click on the extra smiling face on the left side of the page <br>
+    Wins: <span id="win">0</span>, Losses: <span id="loss">0</span><br>
+    How many faces do you want to generate?
+    <input type="number" id="numFace" value="2" style="width: 40px;"> &nbsp;
+    Your collection so far: <span id="smiles">0</span> smiles.
+    <span id="warning"></span>
+    </p>
+    <button onclick="generateFaces()" id="button">Start Game</button>
+    <button id="hint" onclick="giveHint()" onmouseover="losePoint()" onmouseout="clearMsg()">Hint?</button>
+    <main id="m">
+        <div id="leftSide">
+           <!-- <img src="../images/smile.png" style="top:100px; left:100px; width:100">-->
+        </div>
+        <div id="rightSide"></div>
+    </main>
+    <script>
+        let numberOfFaces; // = 5;
+        let numFace;
+        let newStart = true;
+        let theLeftSide = document.getElementById("leftSide");
+        let theRightSide = document.getElementById("rightSide");
+        let wins = 0;
+        let loss = 0;
+        let scrSize = window.innerWidth;
+        alert(scrSize);
+        let twoDivs = scrSize - 1000;
+        if(twoDivs > 0){
+        document.getElementById('m').style.position = "absolute";
+        document.getElementById('m').style.left = (twoDivs/2) + "px";
+    }
+
+        function generateFaces(){
+            document.getElementById('button').disabled= true;
+            if (newStart == true){
+                numberOfFaces = document.getElementById('numFace').value;
+                numFace = document.getElementById('numFace').value;
+            }
+            for (let i = 0; i <= numberOfFaces; i++) {
+                let randomTop = Math.floor(Math.random() * 400);
+                let randomLeft = Math.floor(Math.random() * 400);
+                let face = document.createElement("img");
+                    face.src = "../images/smile.png";
+                    face.style.top = randomTop + "px";
+                    face.style.left = randomLeft + "px";
+                theLeftSide.appendChild(face);
+            }
+            let leftSideImages = theLeftSide.cloneNode(true);
+            leftSideImages.removeChild(leftSideImages.lastChild);
+            theRightSide.appendChild(leftSideImages);
+            theLeftSide.lastChild.addEventListener('click',nextLevel);
+            document.getElementById('m').addEventListener('click',gameOver);
+        }
+
+        function nextLevel(e){
+            e.stopPropagation();
+            newStart = false;
+            while(theLeftSide.firstChild){
+                theLeftSide.removeChild(theLeftSide.firstChild);
+            };
+            theRightSide.innerHTML= "";
+            numberOfFaces = Number(numberOfFaces) + Number(numFace); //+= 5;
+            wins = wins += 1;
+            document.getElementById('win').innerHTML = wins;
+            document.getElementById('smiles').innerHTML = numberOfFaces;
+            generateFaces();
+        }
+
+        function gameOver(e) {
+            alert('You lost!');
+            document.getElementById('m').removeEventListener('click', gameOver);
+            theLeftSide.lastChild.removeEventListener('click', nextLevel);
+            while(theLeftSide.firstChild){
+                theLeftSide.removeChild(theLeftSide.firstChild);
+            };
+            theRightSide.innerHTML= "";
+            numberOfFaces = document.getElementById('numFace').value//= 5;
+            loss += 1;
+            document.getElementById('loss').innerHTML = loss;
+            document.getElementById('smiles').innerHTML = 0;
+            document.getElementById('button').disabled = false;
+        }
+
+        function giveHint(){
+
+            let hintImg = theLeftSide.lastChild;
+            hintImg.style.width = '105px';
+            numberOfFaces = numberOfFaces - 1;
+            document.getElementById('smiles').innerHTML = numberOfFaces;
+        }
+
+        function losePoint() {
+            document.getElementById('warning').innerHTML = 'You will lose a point'
+        }
+
+        function clearMsg() {
+            document.getElementById('warning').innerHTML = ''
+
+        }
+    </script>
+</body>
+</html>

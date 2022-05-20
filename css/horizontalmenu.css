@@ -1,0 +1,37 @@
+.nav1{
+    display: flex; /* Nav1 becomes a flex container */
+    justify-content: center; /* center aligns flex items */
+    /* add background color, font, text, etc., here */
+    }
+    .nav1 li {
+    display: inline-block; /* does not add a line-break */
+    list-style-type: none; /* no bullets */
+    position: relative; /* relative to its normal position */
+    width: 150px; /* up to you... any size will work */
+    }
+    .nav1 li ul {
+    display: none; /* nothing shown */
+    width: 100px; /* size of menu links */
+    position: absolute; /* relative to the nearest positioned ancestor */
+    left: 0px; /* position to parent */
+    top: 100%; /* position to parent */
+    margin: 0px; /* No margin or padding - or it wont work */
+    padding: 0
+    }
+    .nav1 li:hover > ul {
+        display: block; /* on mouse-over we show the element */
+        }
+        .nav1 a {
+        padding: 5px 10px; /* Mostly for looks */
+        text-align: center; /* Mostly for looks */
+        height: 20px; /* Mostly for looks */
+        display: block; /* Required */
+        text-decoration: none; /* remove underline */
+        font-weight: bold; /* Mostly for looks */
+        border: #be5c1b 1px solid;
+        background-color: antiquewhite;
+        color:black;
+        /* add background color, font, text, etc., here */
+        }
+        .nav1 a:hover{ border: black 1px solid; /* add color, font, text, etc., here */ }
+        /* Above is the Nav Menu */

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Practice-js</title>
+    <style>
+        /*body {
+            text-align: center;
+        }*/
+    </style>
+</head>
+
+<body>
+
+    <h2>What can JavaScript Do?</h2>
+    <hr>
+    <p id="demo1">Javascript can change HTML content.</p>
+
+    <button type="button" onclick="document.getElementById('demo1').innerHTML = 'Hello JavaScript!'">Click Me!</button>
+    <hr>
+
+    <p>JavaScript can change the value of the source/attribute of an image.</p>
+
+    <button onclick="document.getElementById('myImage').src='../images/bulbon.jpg'">Turn light on</button>
+    <img src="../images/bulboff.jpg" id="myImage" style="width:100px" />
+    <button onclick="document.getElementById('myImage').src='../images/bulboff.jpg'">Turn bulb off</button>
+    <hr>
+
+    <p id="demo2">JavaScript can change the style of an HTML element.</p>
+
+    <button type="button" onclick="document.getElementById('demo2').style.fontSize='50px'">Click Me!</button>
+    <hr>
+
+    <p>Click the button to print the current page.</p>
+
+    <button onclick='window.print()'>Print this page</button>
+    <hr>
+
+    <p id='demo3'>Javascript can hide HTML elements.</p>
+
+    <button type="button" onclick="document.getElementById('demo3').style.display='none'">Click Me!</button>
+    <hr>
+
+    <p>JavaScript statements are separated by semicolons.</p>
+
+    <p id="demo4"></p>
+    <script>
+        let a, b, c; a = 5; b = 6; c = a + b; 
+        document.getElementById('demo4').innerHTML = c;
+    </script>
+    <p id="demo5"></p>
+    <script>
+        x = 5;
+        y = 4;
+        c = x + y;
+        document.getElementById('demo5').innerHTML = y;
+    </script>
+
+    
+
+</body>
+
+</html>

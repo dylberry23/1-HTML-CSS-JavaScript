@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match Smile Game</title>
+    <style>
+        img{position: absolute;}
+        div{
+            position: absolute;
+            width: 500px;
+            height: 500px;
+        }
+        #rightSide{
+            left: 500px;
+            border-left: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Matching Game</h1>
+    <p>Click on the extra smiling face on the left side of the page</p>
+    <button onclick="generateFaces()">Start Game</button>
+    <main id="m">
+        <div id="leftSide"></div>
+        <div id="rightSide"></div>
+    </main>
+    <script>
+        let numberOfFaces = 5;
+        let theLeftSide = document.getElementById("leftSide");
+        let theRightSide = document.getElementById("rightSide");
+
+        function generateFaces(){
+            for (let i = 0; i <= numberOfFaces; i++) {
+                let randomTop = Math.floor(Math.random() * 400);
+                let randomLeft = Math.floor(Math.random() * 400);
+                let face = document.createElement("img");
+                    face.src = "../images/smile.png";
+                    face.style.top = randomTop + "px";
+                    face.style.left = randomLeft + "px";
+                theLeftSide.appendChild(face);
+            }
+            let leftSideImages = theLeftSide.cloneNode(true);
+            leftSideImages.removeChild(leftSideImages.lastChild);
+            theRightSide.appendChild(leftSideImages);
+            theLeftSide.lastChild.addEventListener('click',nextLevel);
+            document.getElementById('m').addEventListener('click', gameOver);
+        }
+
+        function nextLevel(e){
+            e.stopPropagation();
+            while(theLeftSide.firstChild){
+                theLeftSide.removeChild(theLeftSide.firstChild);
+            }
+            theRightSide.innerHTML= "";
+            numberOfFaces +=5;
+            generateFaces();
+        }
+
+        function gameOver(e) {
+            alert('You lost!');
+            document.getElementById('m').removeEventListener('click', gameOver);
+            theLeftSide.lastChild.removeEventListener('click', nextLevel);
+            while(theLeftSide.firstChild){
+                theLeftSide.removeChild(theLeftSide.firstChild);
+            };
+            theRightSide.innerHTML= "";
+            numberOfFaces = 5;
+        }
+    </script>
+</body>
+</html>
